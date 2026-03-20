@@ -1,0 +1,5 @@
+job_id,job_description
+1,"We are looking for a Data Analyst with strong SQL, Excel, and Power BI skills. The candidate should be comfortable building dashboards, analyzing business data, and communicating insights to stakeholders."
+2,"We are hiring a Data Scientist with experience in Python, machine learning, statistics, and model development. Familiarity with scikit-learn and experimentation is preferred."
+3,"Seeking a Data Engineer with expertise in ETL pipelines, Spark, AWS, and large-scale data processing. Experience with cloud platforms and workflow automation is required."
+4,"We need a Machine Learning Engineer who can deploy ML models, work with Python, TensorFlow, and cloud infrastructure, and support model monitoring in production."
