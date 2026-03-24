@@ -71,6 +71,7 @@ To evaluate the effectiveness of AI-generated job applications, an A/B testing f
 - Group B: Manual applications
 - Metrics: Response rate, recruiter engagement, interview conversion rate
 
+Considered statistical significance and sample size requirements for reliable comparison
 This framework demonstrates how the system can be evaluated in a real-world scenario using data-driven experimentation.
 
 ---
