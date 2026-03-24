@@ -63,6 +63,18 @@ Job Description → Skill Extraction → Role Prediction → Resume Advice
 
 ---
 
+📊 Experimentation (A/B Testing Approach)
+
+To evaluate the effectiveness of AI-generated job applications, an A/B testing framework was designed:
+
+- Group A: AI-generated applications
+- Group B: Manual applications
+- Metrics: Response rate, recruiter engagement, interview conversion rate
+
+This framework demonstrates how the system can be evaluated in a real-world scenario using data-driven experimentation.
+
+---
+
 ## 📈 Example Output
 
 Input:
