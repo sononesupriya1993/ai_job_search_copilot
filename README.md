@@ -76,6 +76,63 @@ This framework demonstrates how the system can be evaluated in a real-world scen
 
 ---
 
+## 🛡️ Monitoring & Observability
+
+Production ML systems fail silently. This project prioritizes observability as a core feature, not an afterthought.
+
+### System Logging & Decision Tracking
+
+Every analysis is logged with:
+
+- **Timestamp & latency**: Track when analyses run and how long they take
+- **Job description metadata**: Length, detected sections, quality flags
+- **Predicted role & confidence**: What the classifier thinks + how sure it is
+- **Skills extracted & missing keywords**: Explicit tracking of model outputs
+- **Application metadata**: Company, role, application type (AI vs manual)
+
+**Log storage**: `logs/system_monitoring.log` — structured, queryable logs for post-hoc analysis
+
+### Data Quality Checks
+
+Before analysis, the system validates inputs:
+
+- **Job description length**: Warns if < 50 chars (insufficient detail) or > 10,000 chars (potential noise)
+- **Missing fields**: Alerts on incomplete company/role information
+- **Structure detection**: Flags if no "requirements" or "skills" section found
+- **Edge cases**: Logs unusual patterns (e.g., role with zero extracted skills)
+
+Example: A job description lacking a clear requirements section is flagged, and the system logs this for investigation. Over time, this reveals systematic issues (e.g., parsing failures on certain job board formats).
+
+### Error Handling & Resilience
+
+All operations wrapped in try/catch blocks:
+
+- **Graceful failures**: If skill extraction fails, the system logs the error and returns empty results instead of crashing
+- **Database error handling**: SQLite connection errors are caught and logged; users see friendly error messages
+- **Observability on failure**: Every error includes context (company, role, exact failure point) for debugging
+
+### Performance Monitoring
+
+Metrics tracked per analysis:
+
+- **Analysis latency**: How long does skill extraction + role classification take?
+- **Typical bottleneck**: Role classification (keyword matching); logged for future optimization
+- **Baseline**: Currently ~0.5s per analysis; alerts if this drifts > 2s (indicates data quality issue or infrastructure problem)
+
+### Statistics Dashboard
+
+Built-in monitoring dashboard shows:
+
+- Total applications logged
+- Breakdown by type (AI-assisted vs manual)
+- Most common predicted roles (trend analysis)
+- Recent applications (last 5)
+- Average skills found per job (quality metric)
+
+**Why this matters for interviews:** When a recruiter asks "How would you know if your system is broken in production?" — you have a real answer backed by actual logging + monitoring.
+
+---
+
 ## 📈 Example Output
 
 Input:
